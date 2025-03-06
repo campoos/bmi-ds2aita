@@ -1,8 +1,14 @@
 <resources>
-    <string name="app_name">IMC</string>
-    <string name="welcome">Bem-vindo!</string>
-    <string name="your_name">Qual é o seu nome?</string>
-    <string name="next">Próximo</string>
+    <string name="app_name">BMI</string>
+    <string name="welcome">Welcome!</string>
+    <string name="your_name">What\'s your name?</string>
+    <string name="next">Next</string>
+
+    <string name="Hi">Hi!</string>
+    <string name="MaleButton">Male</string>
+    <string name="FemaleButton">Female</string>
+    <string name="Age">Age</string>
+    <string name="Weight">Weight</string>
+    <string name="Height">Height</string>
+    <string name="Calculate">Calculate</string>
 </resources>
-
-
