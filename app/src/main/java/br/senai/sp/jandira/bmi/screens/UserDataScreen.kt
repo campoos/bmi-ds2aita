@@ -47,6 +47,17 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun UserDataScreen(modifier: Modifier = Modifier) {
+
+    var nameAge = remember {
+        mutableStateOf("")
+    }
+    var nameWeight = remember {
+        mutableStateOf("")
+    }
+    var nameHeight = remember {
+        mutableStateOf("")
+    }
+
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -159,8 +170,10 @@ fun UserDataScreen(modifier: Modifier = Modifier) {
                            .padding(top = 40.dp)
                            .width(320.dp),
                        shape = RoundedCornerShape(12.dp),
-                         value = "",
-                        onValueChange = {},
+                         value = nameAge.value,
+                        onValueChange = {
+                            nameAge.value = it
+                        },
                        label = {
                            Text(
                                stringResource(
@@ -183,8 +196,10 @@ fun UserDataScreen(modifier: Modifier = Modifier) {
                             .padding(top = 40.dp)
                             .width(320.dp),
                         shape = RoundedCornerShape(12.dp),
-                        value = "",
-                        onValueChange = {},
+                        value = nameWeight.value,
+                        onValueChange = {
+                            nameWeight.value = it
+                        },
                         label = {
                             Text(
                                 stringResource(
@@ -206,8 +221,10 @@ fun UserDataScreen(modifier: Modifier = Modifier) {
                             .padding(top = 40.dp)
                             .width(320.dp),
                         shape = RoundedCornerShape(12.dp),
-                        value = "",
-                        onValueChange = {},
+                        value = nameHeight.value,
+                        onValueChange = {
+                            nameHeight.value = it
+                        },
                         label = {
                             Text(
                                 stringResource(
@@ -244,7 +261,6 @@ fun UserDataScreen(modifier: Modifier = Modifier) {
         }
     }
 }
-
 
 @Preview
 @Composable
