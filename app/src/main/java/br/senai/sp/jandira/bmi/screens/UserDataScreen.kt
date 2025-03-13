@@ -159,11 +159,16 @@ fun UserDataScreen(modifier: Modifier = Modifier) {
                            .padding(top = 40.dp)
                            .width(320.dp),
                        shape = RoundedCornerShape(12.dp),
-                         value = "Age",
+                         value = "",
                         onValueChange = {},
-                       textStyle = TextStyle(
-                           fontSize = 18.sp
-                       ),
+                       label = {
+                           Text(
+                               stringResource(
+                                   R.string.Age
+                               ),
+                               fontSize = 18.sp
+                           )
+                       },
                        leadingIcon = {
                            Icon(
                                imageVector = Icons.Default.CalendarToday,
@@ -178,11 +183,16 @@ fun UserDataScreen(modifier: Modifier = Modifier) {
                             .padding(top = 40.dp)
                             .width(320.dp),
                         shape = RoundedCornerShape(12.dp),
-                        value = "Weight",
+                        value = "",
                         onValueChange = {},
-                        textStyle = TextStyle(
-                            fontSize = 18.sp
-                        ),
+                        label = {
+                            Text(
+                                stringResource(
+                                    R.string.Weight
+                                ),
+                                fontSize = 18.sp
+                            )
+                        },
                         leadingIcon = {
                             Icon(
                                 imageVector = Icons.Default.Accessibility,
@@ -196,11 +206,16 @@ fun UserDataScreen(modifier: Modifier = Modifier) {
                             .padding(top = 40.dp)
                             .width(320.dp),
                         shape = RoundedCornerShape(12.dp),
-                        value = "Height",
+                        value = "",
                         onValueChange = {},
-                        textStyle = TextStyle(
-                            fontSize = 18.sp
-                        ),
+                        label = {
+                            Text(
+                                stringResource(
+                                    R.string.Height
+                                ),
+                                fontSize = 18.sp
+                            )
+                        },
                         leadingIcon = {
                             Icon(
                                 imageVector = Icons.Default.Height,
