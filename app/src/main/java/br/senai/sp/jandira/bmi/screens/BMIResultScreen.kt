@@ -113,7 +113,7 @@ fun BMIResultScreen(modifier: Modifier = Modifier) {
                             .width(350.dp)
                             .height(80.dp),
                         colors = CardDefaults.cardColors(
-                            containerColor = Color(0xFFEDDCF1)
+                            containerColor = Color(0xFFE5DAE8)
                         )
                     ) {
                         Row (
