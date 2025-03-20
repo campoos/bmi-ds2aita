@@ -11,4 +11,9 @@
     <string name="Weight">Weight</string>
     <string name="Height">Height</string>
     <string name="Calculate">Calculate</string>
+
+    <string name="resultTitle">Your BMI Result</string>
+    <string name="classificacaoDescription">You have Class | Obesity</string>
+    <string name="High">High</string>
+    <string name="newCalc">New Calc</string>
 </resources>
