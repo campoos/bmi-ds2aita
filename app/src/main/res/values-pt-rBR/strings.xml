@@ -1,16 +1,16 @@
 <resources>
-    <string name="app_name">BMI</string>
-    <string name="welcome">Welcome!</string>
-    <string name="your_name">What\'s your name?</string>
-    <string name="next">Next</string>
+    <string name="app_name">IMC</string>
+    <string name="welcome">Bem-vindo!</string>
+    <string name="your_name">Qual o seu nome?</string>
+    <string name="next">Próximo</string>
 
-    <string name="Hi">Hi!</string>
-    <string name="MaleButton">Male</string>
-    <string name="FemaleButton">Female</string>
-    <string name="Age">Age</string>
-    <string name="Weight">Weight</string>
-    <string name="Height">Height</string>
-    <string name="Calculate">Calculate</string>
+    <string name="Hi">Oi!</string>
+    <string name="MaleButton">Masculino</string>
+    <string name="FemaleButton">Feminino</string>
+    <string name="Age">Idade</string>
+    <string name="Weight">Peso</string>
+    <string name="Height">Altura</string>
+    <string name="Calculate">Calcular</string>
 
     <string name="resultTitle">Your BMI Result</string>
     <string name="classificacaoDescription">You have Class | Obesity</string>

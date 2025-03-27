@@ -194,9 +194,10 @@ fun BMIResultScreen(modifier: Modifier = Modifier) {
                     }
                     Column (
                         modifier = Modifier
-                            .height(240.dp)
+                            .height(280.dp)
                             .fillMaxWidth()
-                            .background(Color.Transparent)
+                            .padding(top = 25.dp)
+                            .background(Color.Magenta)
                     ){}
                     HorizontalDivider(
                         modifier = Modifier

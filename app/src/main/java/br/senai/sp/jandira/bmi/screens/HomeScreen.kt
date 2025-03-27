@@ -1,6 +1,6 @@
 package br.senai.sp.jandira.bmi.screens
 
-import androidx.compose.foundation.BorderStroke
+import android.content.Context
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -10,12 +10,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Castle
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -29,7 +27,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -38,14 +36,24 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import br.senai.sp.jandira.bmi.R
 
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier) {
+fun HomeScreen(navegacao: NavHostController?) {
 
     var nameState = remember {
         mutableStateOf("")
     }
+
+    // Abrir ou fechar um arquivo do tipo SharedPreferences
+    val context = LocalContext.current
+    val userFile = context
+        .getSharedPreferences("user_file", Context.MODE_PRIVATE)
+
+    val editor = userFile.edit()
+
+    //
 
     Box(
         modifier = Modifier
@@ -55,7 +63,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                     listOf(
                         Color(0xFFD0D0D0),
                         Color(0xFF628143),
-                        Color(0xFF46759F)
+                        Color(0xFF4CAF50)
                     )
                 )
             )
@@ -131,7 +139,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                                 Icon(
                                     imageVector = Icons.Default.Castle,
                                     contentDescription = "",
-                                    tint = Color.Magenta
+                                    tint = Color.Black
                                 )
                             },
                             keyboardOptions = KeyboardOptions(
@@ -142,11 +150,14 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                     }
                     Button(
                         onClick = {
+                            editor.putString("user_name", nameState.value)
+                            editor.apply()
+                            navegacao?.navigate("user_data")
                         },
                         modifier = Modifier.padding(16.dp)
                     ) {
                         Text(
-                            text = stringResource(id = R.string.next)
+                            text = stringResource(R.string.next)
                         )
                     }
                 }
@@ -158,5 +169,5 @@ fun HomeScreen(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun HomeScreenPreview() {
-    HomeScreen ()
+    HomeScreen(null)
 }
