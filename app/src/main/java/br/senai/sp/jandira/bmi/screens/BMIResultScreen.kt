@@ -1,5 +1,6 @@
 package br.senai.sp.jandira.bmi.screens
 
+import android.content.Context
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -26,15 +27,26 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import br.senai.sp.jandira.bmi.R
 
 @Composable
-fun BMIResultScreen(modifier: Modifier = Modifier) {
+fun BMIResultScreen(navegacao: NavHostController?) {
+
+    val context = LocalContext.current
+    val userFile = context
+        .getSharedPreferences("user_file", Context.MODE_PRIVATE)
+
+    val age = userFile.getInt("user_age", 0)
+    val weight = userFile.getFloat("user_weight", 0.0f)
+    val height = userFile.getFloat("user_height", 0.0f)
+
     Box(
         modifier =  Modifier
             .fillMaxSize()
@@ -135,7 +147,7 @@ fun BMIResultScreen(modifier: Modifier = Modifier) {
                                     fontWeight = FontWeight(300)
                                 )
                                 Text(
-                                    text = "50",
+                                    text = "$age",
                                     fontSize = 22.sp,
                                     fontWeight = FontWeight(600),
                                     modifier = Modifier
@@ -159,7 +171,7 @@ fun BMIResultScreen(modifier: Modifier = Modifier) {
                                     fontWeight = FontWeight(300)
                                 )
                                 Text(
-                                    text = "97 Kg",
+                                    text = "$weight",
                                     fontSize = 22.sp,
                                     fontWeight = FontWeight(600),
                                     modifier = Modifier
@@ -183,7 +195,7 @@ fun BMIResultScreen(modifier: Modifier = Modifier) {
                                     fontWeight = FontWeight(300)
                                 )
                                 Text(
-                                    text = "178 cm",
+                                    text = "$height",
                                     fontSize = 22.sp,
                                     fontWeight = FontWeight(600),
                                     modifier = Modifier
@@ -227,5 +239,5 @@ fun BMIResultScreen(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun BMIResultScreenPreview() {
-    BMIResultScreen ()
+    BMIResultScreen (null)
 }

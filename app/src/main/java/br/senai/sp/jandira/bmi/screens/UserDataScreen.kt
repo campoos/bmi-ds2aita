@@ -50,8 +50,6 @@ fun UserDataScreen(navegacao: NavHostController?) {
     val userFile = context
         .getSharedPreferences("user_file", Context.MODE_PRIVATE)
 
-    val editor = userFile.edit()
-
     val userName = userFile.getString("user_name", "")
 
     var nameAge = remember {
@@ -64,6 +62,7 @@ fun UserDataScreen(navegacao: NavHostController?) {
         mutableStateOf("")
     }
 
+    val editor = userFile.edit()
 
     Box(
         modifier = Modifier
@@ -250,15 +249,11 @@ fun UserDataScreen(navegacao: NavHostController?) {
                     )
                     Button(
                         onClick = {
-                            val weight = nameWeight.value.toFloat()
-                            val height = nameHeight.value.toFloat()
-                            val age = nameAge.value
-
-                            editor.putString("user_age", age)
-                            editor.putFloat("user_weight", weight)
-                            editor.putFloat("user_height", height)
-
+                            editor.putInt("user_age", nameAge.value.toInt())
+                            editor.putFloat("user_weight", nameWeight.value.toFloat())
+                            editor.putFloat("user_height", nameHeight.value.toFloat())
                             editor.apply()
+
                             navegacao?.navigate("bmi_result")
                         },
                         modifier = Modifier
